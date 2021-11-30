@@ -1,12 +1,14 @@
-const raining = true;
-const cold = false;
-
-if (raining) {
-  console.log("Don't forget your umbrella!");
+const whichSchool  = function (age) {
+  if ( age < 13 ) {
+    return "Elementary School";
+  } else if ( age >= 13 && age <= 18 ) {
+    return "Secondary School";
+  } else {
+    return "Lighthouse Labs";
+  }
 }
 
-if (cold) {
-  console.log("Make sure you pick out a scarf!");
-}
-
-console.log("Now you're ready to go outside!");
+console.log(whichSchool(10));
+console.log(whichSchool(13));
+console.log(whichSchool(18));
+console.log(whichSchool(20));
