@@ -1,25 +1,28 @@
-let count = 100;
-let returnResult = false;
-let resultString = "";
+const loopyLighthouse = function (start, end, multiple, substitutions) {
+  const startCount = start
+  const endValue = end
+  const multiples = multiple
+  const words = substitutions
 
-for ( let x = count; x <= 200; x++ ) {
-  if ( count % 3 === 0 ) {
-    resultString += "Loopy";
-    returnResult = true;
+  const checkSubstitute = function (num) {
+    let result = []
+
+    for (let i = 0; i < multiples.length; i++) {
+      if (num % multiples[i] === 0) {
+        result.push(words[i])
+      }
+    }
+
+    if (result.length === 0) {
+      return num
+    } else {
+      return result.join(' ')
+    }
   }
 
-  if ( count % 4 === 0 ) {
-    resultString += "Lighthouse";
-    returnResult = true;
+  for (let x = startCount; x <= endValue; x++) {
+    console.log(checkSubstitute(x))
   }
-
-  if ( returnResult === true ) {
-    console.log(resultString);
-    resultString = "";
-    returnResult = false;
-  } else {
-    console.log(count);
-  }
-  
-  count++;
 }
+
+loopyLighthouse(100,200,[3,4,5],['Loopy', 'Lighthouse', 'Bootcamp'])
